@@ -1,0 +1,18 @@
+version: "3.9"  # optional since v1.27.0
+services:
+ web1:
+    build: webapp1.Dockerfile
+    ports:
+      - "8088:80"
+    volumes:
+      - .:/webapp1.Dockerfile
+      - logvolume1:/var/log
+
+ web2:
+    build: webapp2.Dockerfile
+    ports:
+     - "8087:80"
+    volumes:
+     - .:/webapp2.Dockerfile
+     - logvolume1:/var/log
+

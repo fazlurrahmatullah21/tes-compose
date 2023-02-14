@@ -1,18 +1,14 @@
-version: "3.9"  # optional since v1.27.0
+version: '3'
 services:
- web1:
-    build: webapp1.Dockerfile
-    ports:
-      - "8088:80"
+  nginx-tes:
+   image: nginx:latest
+   volumes:
+     - /var/lib/docker/volumes/volume-nginx:/usr/share/nginx/html
+   ports:
+     - "8088:80"
+  httpd-tes:
+    image: httpd:2.4.55-alpine
     volumes:
-      - .:/webapp1.Dockerfile
-      - logvolume1:/var/log
-
- web2:
-    build: webapp2.Dockerfile
+     - /var/lib/docker/volumes/volume-httpd:/var/www/html
     ports:
-     - "8087:80"
-    volumes:
-     - .:/webapp2.Dockerfile
-     - logvolume2:/var/log
-
+      - "8089:80"

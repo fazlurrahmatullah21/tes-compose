@@ -1,14 +1,19 @@
 version: '3'
 services:
   nginx-tes:
-   image: nginx:latest
-   volumes:
-     - /var/lib/docker/volumes/volume-nginx:/usr/share/nginx/html
+   image: fazler/nginx
+   build: nginx/.
    ports:
      - "8088:80"
+   volumes:
+    - nginx-test:/usr/share/nginx/html
   httpd-tes:
-    image: httpd:2.4.55-alpine
-    volumes:
-     - /var/lib/docker/volumes/volume-httpd:/var/www/html
+    image: fazler/httpd
+    build: apache/.
     ports:
       - "8089:80"
+    volumes:
+      - httpd-test:/usr/local/apache2/htdocs/
+volumes:
+  nginx-test:
+  httpd-test:

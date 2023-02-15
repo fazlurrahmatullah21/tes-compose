@@ -1,14 +1,14 @@
 version: '3'
 services:
   nginx-tes:
-   image: fazler/nginx
+   image: webapp1/nginx
    build: nginx/.
    ports:
      - "8088:80"
    volumes:
     - nginx-test:/usr/share/nginx/html
   httpd-tes:
-    image: fazler/httpd
+    image: webapp1/httpd
     build: apache/.
     ports:
       - "8089:80"

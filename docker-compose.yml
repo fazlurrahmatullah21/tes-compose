@@ -2,14 +2,14 @@ version: '3'
 services:
   nginx-tes:
    image: webapp1/nginx
-   build: nginx/.
+   build: ./nginx
    ports:
      - "8088:80"
    volumes:
     - nginx-test:/usr/share/nginx/html
   httpd-tes:
     image: webapp1/httpd
-    build: apache/.
+    build: ./nginx
     ports:
       - "8089:80"
     volumes:
